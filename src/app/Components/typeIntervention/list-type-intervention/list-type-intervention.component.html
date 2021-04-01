@@ -1,0 +1,51 @@
+<div style="position: absolute;z-index: -1;top: 10%;bottom: 0;left:0;right: 0;background: url('/assets/img/poulinagh.png') center center;
+opacity: 0.5;width: 100%;height: 100%;background-repeat: no-repeat;background-size: cover;">
+
+</div>
+
+<div class="main-content" >    
+    
+    
+    <h1 style=" font-weight: bold;color:#c93a3a;font-size: 60px;">Types Interventions<img src="/assets/img/409_tool_outline.gif" 
+        style="max-height: 90px;"/></h1>
+    <br>
+    
+   
+<p-table [value]="typeInterventions">
+ 
+       <ng-template pTemplate="header">
+ 
+           <tr>
+    
+               <th style="font-size: 15px;">ID</th>
+               <th style="font-size: 15px;">Type</th>
+               <!-- <th style="font-size: 15px;">Etat</th>   -->
+               <th style="font-size: 15px;" *ngIf="isAdmin">Actions</th>
+
+
+               
+  
+           </tr>
+   
+       </ng-template>
+ 
+       <ng-template pTemplate="body" let-typeIntervention>
+  
+           <tr>
+                
+               <td style="font-size: 15px;">{{typeIntervention.id_type_intervention}}</td>
+               <td style="font-size: 15px;">{{typeIntervention.type_intervention}}</td>
+               <!-- <td style="font-size: 15px;">{{typeIntervention.etat_intervention}}</td> -->
+
+               <td style="text-align: center;" *ngIf="isAdmin">
+                <button id="b1" pButton type="button" (click)="openComponentForUpdate(typeIntervention)" 
+                label="Mettre à jour" class="p-button-success" style="width: 170px; height: 40px; font-size: 20px;" ></button>
+            </td>
+                 
+  
+           </tr>
+       </ng-template>
+  
+     </p-table>
+ 
+ </div>

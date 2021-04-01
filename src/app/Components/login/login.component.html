@@ -1,0 +1,152 @@
+<!-- <div class="main-content" >
+  
+
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="alert alert-info">
+        <strong><h1 style="text-align: center;">
+            Login
+        </h1></strong> 
+    </div>
+    <div class="card">
+        <h1 class="card-header" style="font-size: 20px;">Login</h1>
+        <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" class="form-control"
+                     [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control"
+                     [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</div> -->
+
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+<!-- Head -->
+
+<head>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Index-Page-CSS -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <!-- //Custom-Stylesheet-Links -->
+    <!--fonts -->
+    <!-- //fonts -->
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all"> -->
+    <!-- //Font-Awesome-File-Links -->
+	
+	<!-- Google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+	<!-- Google fonts -->
+
+</head>
+<!-- //Head -->
+<!-- Body -->
+
+<body>
+
+   <section class="main">
+<div class="login">
+
+	<div class="layer">
+    
+
+		<div class="content-w3ls">
+            <div class="text-center icon">
+			</div>
+            <div class="text-center icon">
+                <h1 style="font-size: 100px;">Login</h1>
+			</div>
+<br><br>
+
+
+			<div class="content-bottom">
+
+				<form [formGroup]="loginForm"(ngSubmit)="onSubmit()">
+                    
+					<div class="field-group">
+                        <span class="fa fa-user" aria-hidden="true"></span> 
+                         <div class="wthree-field">
+                         <input name="text1" id="text1" type="text" value="" placeholder="Username" required
+                            formControlName="username" class="form-control"
+                     [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                     
+                     <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+						</div>
+					</div>
+					<div class="field-group">
+                        <span class="fa fa-lock" aria-hidden="true"></span>
+						<div class="wthree-field">
+                            <input name="password" id="text" type="Password" placeholder="Password"
+                            formControlName="password" class="form-control"
+                     [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+						</div>
+					</div>
+					<div class="wthree-field">
+                        <button [disabled]="loading" type="submit" class="btn">Connecter</button>
+                        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+					</div>
+
+
+                </form>
+  
+                
+            </div>
+            
+        </div>
+        <div class="copyright">
+            <p>© 2020 . All rights reserved | Design by
+                <a>Razi</a>
+            </p>
+        </div>
+        
+    </div>
+
+
+    </div>
+
+</section>
+
+</body>
+<!-- //Body -->
+</html>
+
+

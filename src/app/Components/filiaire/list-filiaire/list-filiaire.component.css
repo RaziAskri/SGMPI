@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #252525;
+}
+
+.mycontainer {
+  position: relative;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100px;
+}
+.mycontainer .mysearch {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: crimson;
+  border-radius: 50%;
+  transition: all 1s;
+  z-index: 4;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+.mycontainer .mysearch:hover {
+  cursor: pointer;
+}
+.mycontainer .mysearch::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 22px;
+  right: 0;
+  bottom: 0;
+  left: 22px;
+  width: 12px;
+  height: 2px;
+  background: white;
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+.mycontainer .mysearch::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: -5px;
+  right: 0;
+  bottom: 0;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all 0.5s;
+}
+.mycontainer input {
+  font-family: "Inconsolata", monospace;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: crimson;
+  color: white;
+  text-shadow: 0 0 10px crimson;
+  padding: 0 80px 0 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  opacity: 0;
+  z-index: 5;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+}
+.mycontainer input:hover {
+  cursor: pointer;
+}
+.mycontainer input:focus {
+  width: 300px;
+  opacity: 1;
+  cursor: text;
+}
+.mycontainer input:focus ~ .mysearch {
+  right: -250px;
+  background: #151515;
+  z-index: 6;
+}
+.mycontainer input:focus ~ .mysearch::before {
+  top: 0;
+  left: 0;
+  width: 25px;
+}
+.mycontainer input:focus ~ .mysearch::after {
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  border: none;
+  background: white;
+  border-radius: 0%;
+  transform: rotate(-45deg);
+}
+.mycontainer input::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bolder;
+}
+
+#b1:hover {
+  background: #03e9f4;
+  color: #03e9f4;
+  box-shadow: 0 0 5px green,
+              0 0 25px green,
+              0 0 50px green,
+              0 0 200px green;
+
+}
+
+#b2:hover {
+  background: #03e9f4;
+  color: #03e9f4;
+  box-shadow: 0 0 5px red,
+              0 0 25px red,
+              0 0 50px red,
+              0 0 200px red;
+
+}
+
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #050801;
+  font-family: 'Quicksand', sans-serif;
+}
+a{
+  position: relative;
+  display: inline-block;
+  padding: 15px 5px;
+  margin: 40px 0;
+  color: #03e9f4;
+  font-size: 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  -webkit-box-reflect: below 1px linear-gradiant(transparrent,#0005);
+}
+a:nth-child(1){
+  filter: hue-rotate(290deg);
+}
+a:nth-child(3){
+  filter: hue-rotate(110deg);
+}
+a:hover {
+  background: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 200px #03e9f4;
+
+}
+a span {
+  position: absolute;
+  display: block;
+}
+a span:nth-child(1)
+{
+  top: 0;
+  left: -100;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,#03e9f4, #03e9f4);
+  animation: animate1 1s linear infinite;
+
+}
+@keyframes animate1
+{
+  0%{
+    left: -100%;
+  }
+  50%,100%
+  {
+    left: 100%;
+  }
+}
+
+a span:nth-child(2)
+{
+  top: -100;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg,#03e9f4, #03e9f4);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+
+}
+@keyframes animate2
+{
+  0%{
+    top: -100%;
+  }
+  50%,100%
+  {
+    top: 100%;
+  }
+}
+
+
+a span:nth-child(3)
+{
+  bottom: 0;
+  right: -100;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg,#03e9f4, #03e9f4);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+
+}
+@keyframes animate3
+{
+  0%{
+    right: -100%;
+  }
+  50%,100%
+  {
+    right: 100%;
+  }
+}
+
+
+a span:nth-child(4)
+{
+  bottom: -100;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg,#03e9f4, #03e9f4);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+
+}
+@keyframes animate4
+{
+  0%{
+    bottom: -100%;
+  }
+  50%,100%
+  {
+    bottom: 100%;
+  }
+}

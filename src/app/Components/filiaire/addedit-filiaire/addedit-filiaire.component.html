@@ -1,0 +1,20 @@
+<form [formGroup]="filiaireService.form" (submit)="onSubmit()"> 
+   
+  
+    <div class="form-group row">
+        <input type="hidden" formControlName="id_filiaire">
+      <label for="colFormLabel" class="col-sm-2 col-form-label">Label</label>
+      <div class="col-sm-10">
+        <input type="text" formControlName="label" class="form-control" id="colFormLabel" placeholder="please enter Label here">
+      </div>
+    </div>
+   
+    
+      <div class="card-footer py-4">
+        <div class="text-center">
+            
+            <button [disabled]='filiaireService.form.invalid' pButton type="submit" label="Sauvegarder" 
+            icon="pi pi-check" class="p-button-lg" class="p-button-success"></button>
+        </div>
+    </div>
+  </form>

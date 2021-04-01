@@ -1,0 +1,83 @@
+<form [formGroup]="interventionService.form"  (submit)="onSubmit()"> 
+   
+  
+    <div class="form-group row">
+        <input type="hidden" formControlName="id_intervention">
+        <input type="hidden" formControlName="id_panne">
+     
+        
+
+      <label for="colFormLabel" class="col-sm-2 col-form-label">Date</label>
+      <div class="col-sm-10">
+        <mat-form-field color="accent" appearance="fill"  >
+          <input type="text" matInput [matDatepicker]="picker1" placeholder="enter date here"
+          formControlName="date_intervention" >
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+    
+
+      <!-- <input type="text" formControlName="date_intervention" class="form-control" id="colFormLabel" placeholder="please enter Date Intervention here"> -->
+
+
+
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Durée</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control form-control-sm" formControlName="duree"  placeholder="please enter Durée here">
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Description</label>
+        <div class="col-sm-10">
+          <input type="text" formControlName="description_intervention" class="form-control form-control-sm" 
+           id="colFormLabelSm" placeholder="please enter Description here">
+        </div>
+      </div>
+      
+      
+      <select class="form-control" formControlName="idTypeIntervention" placeholder="Type Tache" required>
+        <option value="0">-Select-</option>
+        <option *ngFor="let RES of typeIntervention" [ngValue]="RES.id_type_intervention">
+          {{RES.type_intervention}}</option>
+      </select> 
+
+      <h2>Intervention :</h2>
+
+ <div class="custom-control custom-radio">
+  <input type="radio" class="custom-control-input" id="defaultChecked" [value]="0" name="type"  [ngModelOptions]="{standalone: true}" [(ngModel)]="type" checked>
+  <label class="custom-control-label" for="defaultChecked" >Interne</label>
+</div>
+ 
+<!-- <select  *ngIf="type == 0" class="form-control" formControlName="idTypeIntervention" placeholder="Type Tache" required>
+  <option value="0">-Select-</option>
+  <option *ngFor="let RES of typeIntervention" [ngValue]="RES.idTypeIntervention">
+    {{RES.type_intervention}}</option>
+</select> -->
+
+
+ <div class="custom-control custom-radio">
+  <input type="radio" class="custom-control-input" id="defaultUnchecked" [value]="1"  [ngModelOptions]="{standalone: true}" [(ngModel)]="type" name="type"  >
+  <label class="custom-control-label" for="defaultUnchecked">Externe</label>
+</div>  
+
+ 
+<select  *ngIf="type == 1" class="form-control"  [ngModelOptions]="{standalone: true}" [(ngModel)]="id_fournisseur" placeholder="Type Tache" required>
+  <option value="1">-Select-</option>
+  <option *ngFor="let RES of fournisseurs" [ngValue]="RES.id_fournisseur">
+    {{RES.label}}</option>
+</select>
+
+
+
+
+
+      <div class="card-footer py-4">
+        <div class="text-center">
+            <button  pButton type="submit" label="Sauvegarder" 
+            icon="pi pi-check" class="p-button-lg" class="p-button-success"></button>
+        </div>
+    </div>
+  </form>

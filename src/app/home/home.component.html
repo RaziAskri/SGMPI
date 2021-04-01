@@ -1,0 +1,72 @@
+<div class="main-content">
+
+  <h1 style=" font-weight: bold;color:#c93a3a;font-size: 60px;">Dashboard <img src="/assets/img/467_dashboard_gauge_outline.gif" 
+    style="max-height: 110px;"/></h1>
+
+
+
+
+    <div class="container-fluid">
+    <div class="row" style="height:200px">
+        <div class="col-sm-6">  
+        <div class="card">
+            <div style="display: block">
+              <canvas baseChart
+                      [datasets]="barChartData"
+                      [labels]="barChartLabels"
+                      [options]="barChartOptions"
+                      [legend]="barChartLegend"
+                      [chartType]="barChartType">
+              </canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+               <div style="display: block">
+              <canvas baseChart
+              [datasets]="radarChartData"
+              [labels]="radarChartLabelsAcheves"
+              [chartType]="radarChartType">
+            </canvas>
+               </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="card">
+            <div style="display: block">
+                <canvas baseChart
+                        [data]="pieChartData"
+                        [labels]="pieChartLabels"
+                        [chartType]="pieChartType"></canvas>
+              </div>
+        </div>
+    </div>
+
+
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div style="display: block">
+                  <canvas baseChart
+                          [datasets]="barChartData2"
+                          [labels]="barChartLabels2"
+                          [options]="barChartOptions"
+                          [legend]="barChartLegend2"
+                          [chartType]="barChartType2">
+                  </canvas>
+                </div>
+              </div>
+            </div>
+
+
+
+
+</div>
+
+
+
+    </div>
+</div>

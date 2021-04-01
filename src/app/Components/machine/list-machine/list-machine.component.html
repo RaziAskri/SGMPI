@@ -1,0 +1,161 @@
+<div style="position: absolute;z-index: -1;top: 10%;bottom: 0;left:0;right: 0;background: url('/assets/img/poulinagh.png') center center;
+opacity: 0.5;width: 100%;height: 100%;background-repeat: no-repeat;background-size: cover;">
+
+ 
+
+</div>
+<div class="main-content" >
+  
+            <h1 style=" font-weight: bold;color:#c93a3a;font-size: 60px;">Machines <img src="/assets/img/gears.gif" 
+              style="max-height: 80px;"/></h1>
+          
+            <div class="row">
+              <div class="col-lg-1" >
+              </div>
+              <div class="col-lg-10" >
+            <div class="mycontainer">
+              <input type="text" placeholder="Chercher...." 
+              (input)="dt.filterGlobal($event.target.value,'contains')">
+              <div class="mysearch"></div>
+            </div>
+              </div>
+                <div class="col-lg-1" >
+
+                  <a  style="float: right;" (click)="openComponentForPost()" label="Machine"  *ngIf="isAdmin">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    +Machine
+                    </a>
+
+                <!-- <button pButton type="button" class="p-button-raised p-button-rounded" style="float: right;margin-top: 20px;
+                width: 100px; height: 50px; font-size: 20px;" *ngIf="isAdmin"
+                (click)="openComponentForPost()" label="Machine"><i class="fa fa-plus"></i></button> -->
+             </div>
+              
+        </div>
+                
+
+             <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+
+<!-- ****************************tab1**********************************                 -->
+
+                <mat-tab label="Fonctionne">
+                    
+                
+                        <p-table  [globalFilterFields]="['label']"  #dt [paginator]="true" [rows]="5" [value]="machineFonctionne">
+                        <ng-template pTemplate="caption">
+                
+                        </ng-template>
+                
+                      <ng-template pTemplate="header">
+                
+                          <tr>
+                   
+                              <th style="font-size: 15px;" [pSortableColumn]="'label'">Label<p-sortIcon [field]="'label'"></p-sortIcon></th> 
+                              <th style="font-size: 15px;">Type</th>
+                              <th style="font-size: 15px;">Fournisseur</th>
+                              <th style="font-size: 15px;">Etat</th>
+
+                              <th style="font-size: 15px;" *ngIf="isAdmin">Actions</th>
+     
+                 
+                          </tr>
+                  
+                      </ng-template>
+                
+                      <ng-template pTemplate="body" let-machine>
+                 
+                          <tr>
+                               
+                              <td style="font-size: 15px;">{{machine.label}}</td>
+                              <td style="font-size: 15px;">{{machine.type_machine}}</td>
+                              <td style="font-size: 15px;">{{machine.label_fournisseur}}</td>
+                              <td style="font-size: 15px;">{{machine.etat_machine}}</td>
+
+
+                              <td *ngIf="isAdmin" style="text-align: center;"> 
+                                <div class="row">
+                                <button id="b1" style="background-color: green;"mat-fab color="primary" (click)="openComponentForUpdate(machine)" >
+                                    <mat-icon><i class="fa fa-pencil-square-o" style="font-size: 25px;"></i></mat-icon></button>
+                                 
+
+                                &nbsp;
+
+                                <button id="b2" style="background-color: red;" mat-fab color="warn"  (click)="activationMachine(machine)">
+                                    <mat-icon><i class="pe-7s-trash" style="font-size: 25px;"></i></mat-icon></button>
+
+                                    &nbsp;
+                                  
+                                  <button id="b3" style="background-color: orange;"mat-fab color="primary" (click)="onAjoutPanne(machine.id_machine)">
+                                    <mat-icon><i class="fa fa-exclamation-triangle" style="font-size: 25px;"></i></mat-icon></button>
+                                  </div>
+                                </td>
+                                
+
+                          </tr>
+                      </ng-template>
+                 
+                    </p-table>
+   
+                </mat-tab>
+
+<!-- *********************************tab2*************************************** -->
+
+                <mat-tab label="En Panne">
+
+
+                
+                        <p-table  [globalFilterFields]="['label']"  #dt [paginator]="true" [rows]="5" [value]="machineEnPanne">
+                        <ng-template pTemplate="caption">
+                
+                        </ng-template>
+                
+                      <ng-template pTemplate="header">
+                
+                          <tr>
+                   
+                              <th style="font-size: 15px;">ID</th>
+                              <th [pSortableColumn]="'label'" style="font-size: 15px;">Label<p-sortIcon [field]="'label'"></p-sortIcon></th> 
+                              <th style="font-size: 15px;">Type</th>
+                              <th style="font-size: 15px;">Fournisseur</th>
+                              <th style="font-size: 15px;">Etat</th>
+                              <th style="font-size: 15px;" *ngIf="isAdmin">Actions</th>
+     
+                 
+                          </tr>
+                  
+                      </ng-template>
+                
+                      <ng-template pTemplate="body" let-machine>
+                 
+                          <tr>
+                               
+                              <td style="font-size: 15px;">{{machine.id_machine}}</td>
+                              <td style="font-size: 15px;">{{machine.label}}</td>
+                              <td style="font-size: 15px;">{{machine.type_machine}}</td>
+                              <td style="font-size: 15px;">{{machine.label_fournisseur}}</td>
+                              <td style="font-size: 15px;">{{machine.etat_machine}}</td>
+
+                            <td style="text-align: center;" *ngIf="isAdmin"> 
+                              <button id="b1" style="background-color: green;" mat-fab color="primary" (click)="openComponentForUpdate(machine)">
+                              <mat-icon><i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 25px;"></i></mat-icon>
+                            </button>
+
+                          &nbsp;
+
+                          <button id="b2" style="background-color: red;" mat-fab color="primary"  (click)="activationMachine(machine)">
+                              <mat-icon><i class="pe-7s-trash" style="font-size: 25px;"></i></mat-icon></button> </td>
+   
+                          </tr>
+                      </ng-template>
+                 
+                    </p-table>
+
+
+                </mat-tab>
+              </mat-tab-group>
+
+</div>
